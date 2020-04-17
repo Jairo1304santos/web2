@@ -6,28 +6,18 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateTurmas extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+    
     public function up()
     {
         Schema::create('turmas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('disciplina_id');
-            $table->foreign('disciplina_id')->references('id')->on('disciplinas');
-            $table->unsignedBigInteger('professor_id');
-            $table->foreign('professor_id')->references('id')->on('professores');
+            $table->string('disciplina_id');
+            $table->string('tutor_id');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+    
     public function down()
     {
         Schema::dropIfExists('turmas');
